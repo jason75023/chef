@@ -4,4 +4,15 @@
 #allow root user login with password 
 cd /etc/ssh
 sed -i.bak -e 's/^#PermitRootLogin/PermitRootLogin/' -e 's/^#PasswordAuthentication/PasswordAuthentication/' sshd_config
+
+echo "##### check sshd_config change ######"
 diff sshd_config sshd_config.bak
+
+echo -n "Enter Password > "
+read text
+
+#change password
+echo -e "$text\n$text" | (passwd --stdin $USER)
+
+
+
