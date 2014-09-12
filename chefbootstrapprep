@@ -14,5 +14,6 @@ read text
 #change password
 echo -e "$text\n$text" | (passwd --stdin $USER)
 
-
+#recycle sshd process
+service sshd restart
 
