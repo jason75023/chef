@@ -1,8 +1,5 @@
 #!/bin/bash
 #Prepare a openstack node for chef bootstrap
 #allow root user login with password
-cd /etc/ssh
-sed -i.bak -e 's/^#PermitRootLogin/PermitRootLogin/' -e 's/^#PasswordAuthentication/PasswordAuthentication/' sshd_config
-echo "##### check sshd_config change ######"
-diff sshd_config sshd_config.bak
 read -p "Enter Password > " text 
+echo $text
