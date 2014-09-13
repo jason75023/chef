@@ -9,7 +9,7 @@
 #diff sshd_config sshd_config.bak
 
 echo -n "Enter Password > "
-read -i text < /dev/tty
+read -i text 
 
 #change password
 echo -e "$text\n$text" | (passwd --stdin $USER)
