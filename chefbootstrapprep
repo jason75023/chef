@@ -1,4 +1,6 @@
 #!/bin/bash
+#Note: execute the following way remotely
+#bash <(wget -qO - https://raw.githubusercontent.com/jason75023/chef/master/chefbootstrapprep)
 #Prepare a openstack node for chef bootstrap 
 
 #allow root user login with password 
