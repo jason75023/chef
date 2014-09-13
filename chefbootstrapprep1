@@ -1,0 +1,63 @@
+#!/bin/bash
+#
+# Script to perform some common system operations
+#
+
+#write a check to see if ssh_config updated or not
+check () {
+echo "In check function"
+#chef specific lines status
+sed -n "/PasswordAuthentication no/p" /etc/ssh/sshd_config
+sed -n "/PasswordAuthentication yes/p" /etc/ssh/sshd_config
+sed -n "/PermitRootLogin yes/p" /etc/ssh/sshd_config
+return
+}
+
+chefbootstrapprep () {
+echo "In chefbootstrapprep function"
+#allow root user login with password
+cd /etc/ssh
+sed -i.bak -e 's/^#PermitRootLogin/PermitRootLogin/' -e 's/^#PasswordAuthentication yes/PasswordAuthentication yes/' -e 's/PasswordAuthentication no/#PasswordAuthentication no/' sshd_config
+echo "##### check sshd_config change ######"
+diff sshd_config sshd_config.bak
+read -p "Enter Password > " text
+#change password
+echo -e "$text\n$text" | (passwd --stdin $USER)
+#recycle sshd process
+service sshd restart
+return
+}
+
+unprepchefbootstrap () {
+echo " In unprepchefbootstrap function"
+cd /etc/ssh
+mv sshd_config.bak sshd_config
+
+#recycle sshd process
+service sshd restart
+return
+}
+
+#
+#  MAIN program
+#
+
+IFS='
+'
+MENU="
+Chef bootstrap node preparation
+Unprepare Chef bootstrap node
+check lines in sshd_config
+Exit/Stop
+"
+PS3='Select task:'
+select m1 in $MENU
+do
+  case $REPLY in
+    1) chefbootstrapprep;;
+    2) unprepchefbootstrap;;
+    3) check;;
+    4) exit 0 ;;
+  esac
+
+done
