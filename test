@@ -1,8 +1,0 @@
-#!/bin/bash
-#Prepare a openstack node for chef bootstrap
-#allow root user login with password
-#Note: exectue in the following way remotely: 
-#bash <( wget -qO - https://raw.githubusercontent.com/jason75023/chef/master/test)
-
-read -p "Enter Password > " text 
-echo $text
