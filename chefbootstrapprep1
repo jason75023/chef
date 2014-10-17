@@ -1,6 +1,9 @@
 #!/bin/bash
 #
 # Script to perform some common system operations
+# usage: 
+# 1. login to server
+# 2. bash <(wget -qO - https://raw.githubusercontent.com/jason75023/chef/master/chefbootstrapprep1)
 #
 
 #write a check to see if ssh_config updated or not
