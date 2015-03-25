@@ -6,9 +6,12 @@
 #2.bash <(wget -qO - https://raw.githubusercontent.com/jason75023/chef/master/nova_install)
 
 #Turn on EPEL repository
-cd /tmp
-wget http://mirror-fpt-telecom.fpt.net/fedora/epel/6/i386/epel-release-6-8.noarch.rpm
-rpm -ivh epel-release-6-8.noarch.rpm
+#cd /tmp
+#wget http://mirror-fpt-telecom.fpt.net/fedora/epel/6/i386/epel-release-6-8.noarch.rpm
+#rpm -ivh epel-release-6-8.noarch.rpm
+rpm -ev epel-release-6-8.noarch
+yum update
+rpm -ivh http://dl.fedoraproject.org/pub/epel/6/$(uname -i)/epel-release-6-8.noarch.rpm
 
 #install python package manager
 yum install python-pip python-devl
