@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+#install nova client on centos linux server  
+#usage:
+#1. login to server 
+#2.bash <(wget -qO - )
+
+#Turn on EPEL repository
+cd /tmp
+wget http://mirror-fpt-telecom.fpt.net/fedora/epel/6/i386/epel-release-6-8.noarch.rpm
+rpm -ivh epel-release-6-8.noarch.rpm
+
+#install python package manager
+yum install python-pip python-devl
+#install nova client , keystone client, neutronclient 
+pip install python-novaclient python-keystoneclient python-neutronclient 
