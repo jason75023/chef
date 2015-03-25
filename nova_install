@@ -3,7 +3,7 @@
 #install nova client on centos linux server  
 #usage:
 #1. login to server 
-#2.bash <(wget -qO - )
+#2.bash <(wget -qO - https://raw.githubusercontent.com/jason75023/chef/master/nova_install)
 
 #Turn on EPEL repository
 cd /tmp
