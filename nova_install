@@ -14,6 +14,8 @@ yum update
 rpm -ivh http://dl.fedoraproject.org/pub/epel/6/$(uname -i)/epel-release-6-8.noarch.rpm
 
 #install python package manager
-yum install python-pip python-devl
+yum install python-pip python-devl  libxml2-devel libxslt-devel
+#install gcc
+yum install gcc
 #install nova client , keystone client, neutronclient 
 pip install python-novaclient python-keystoneclient python-neutronclient 
