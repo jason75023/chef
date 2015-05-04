@@ -18,4 +18,4 @@ yum install python-pip python-devl  libxml2-devel libxslt-devel
 #install gcc
 yum install gcc
 #install nova client , keystone client, neutronclient 
-pip install python-novaclient python-keystoneclient python-neutronclient 
+pip install python-novaclient python-keystoneclient python-neutronclient python-glanceclient
